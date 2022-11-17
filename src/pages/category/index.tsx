@@ -1,4 +1,7 @@
 import { useState, FormEvent } from 'react'
+
+import Router from 'next/router'
+
 import Head from 'next/head'
 import {Header} from '../../components/Header'
 import styles from './styles.module.scss'
@@ -28,11 +31,14 @@ export default function Category(){
         
     }
 
+    function goToDashboard(){
+        Router.push('/dashboard')
+    }
 
     return(
         <>
         <Head>
-            <title>Nova Categoria - Sujeito Pizzaria</title>
+            <title>Nova Categoria - Quero Pizza</title>
         </Head>
         <div>
             <Header/>
@@ -49,7 +55,7 @@ export default function Category(){
                     onChange={ (e) => setName(e.target.value) }
                     />    
 
-                    <button className={styles.buttonAdd} type="submit">
+                    <button className={styles.buttonAdd} type="submit" onClick={goToDashboard}>
                         Cadastrar
                     </button>
 

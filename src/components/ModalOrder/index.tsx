@@ -53,9 +53,11 @@ export function ModalOrder({ isOpen, onRequestClose, order, handleFinishOrder}: 
                 <section key={item.id} className={styles.containerItem}>
                     <span>{item.amount} - <strong>{item.product.name}</strong></span>
                     <span className={styles.description}>{item.product.description}</span>
+                    <span className={styles.price}>R$: {parseFloat(item.product.price) * item.amount}</span>                    
                 </section>
+              
             ))}
-
+                            
                 <button className={styles.buttonOrder} onClick={ () => handleFinishOrder (order[0].order_id) }>
                     Concluir pedido
                 </button>

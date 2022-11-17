@@ -95,7 +95,7 @@ export default function Dashboard({ orders }: HomeProps){
     return(
         <>
         <Head>
-            <title>Painel - Sujeito Pizzaria</title>
+            <title>Painel - Quero Pizza</title>
         </Head>
         <div>
             <Header/>

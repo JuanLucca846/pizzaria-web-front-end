@@ -19,6 +19,7 @@ type UserProps = {
     id: string;
     name: string;
     email: string;
+    role: string;
 }
 
 type SignInProps = {
@@ -59,12 +60,13 @@ export function AuthProvider({ children }: AuthProviderProps){
 
         if(token){
             api.get('/me').then(response => {
-                const { id, name, email } = response.data;
+                const { id, name, email, role } = response.data;
 
                 setUser({
                     id,
                     name,
                     email,
+                    role,
                 })
 
             })
@@ -84,7 +86,7 @@ export function AuthProvider({ children }: AuthProviderProps){
 
             //console.log(response.data);
 
-            const {id, name, token } = response.data;   
+            const {id, name, token, role } = response.data;   
             
             setCookie(undefined, '@nextauth.token', token, {
                 maxAge: 60 * 60 * 24 * 30,
@@ -95,6 +97,7 @@ export function AuthProvider({ children }: AuthProviderProps){
                 id,
                 name,
                 email,
+                role
             })
 
             api.defaults.headers['Authorization'] = `Bearer ${token}`

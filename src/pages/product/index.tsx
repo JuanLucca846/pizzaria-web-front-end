@@ -1,5 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 
+import Router from 'next/router';
+
 import Head from 'next/head';
 import styles from './styles.module.scss';
 import { Header } from '../../components/Header'
@@ -57,6 +59,10 @@ export default function Product({ categoryList }: CategoryProps){
 
     }
 
+    function goToDashboard(){
+        Router.push('/dashboard')
+    }
+
     async function handleRegister(event: FormEvent){
         event.preventDefault();
 
@@ -95,7 +101,7 @@ export default function Product({ categoryList }: CategoryProps){
     return(
         <>
         <Head>
-            <title>Novo Produto - Sujeito Pizzaria</title>
+            <title>Novo Produto - Quero Pizza</title>
         </Head>
         <div>
             <Header/>
@@ -152,13 +158,13 @@ export default function Product({ categoryList }: CategoryProps){
                     />
 
                     <textarea
-                        placeholder="Drescreva seu produto..."
+                        placeholder="Descreva seu produto..."
                         className={styles.input}
                         value={description}
                         onChange={ (e) => setDescription(e.target.value) }
                     />
 
-                    <button className={styles.buttonAdd} type="submit">
+                    <button className={styles.buttonAdd} type="submit" onClick={goToDashboard}>
                         Cadastrar
                     </button>
 

@@ -4,7 +4,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/home.module.scss';
 
-import logoImg from '../../public/logo.svg';
+
+import logoImg from '../../public/queropizza.svg';
 
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
@@ -49,7 +50,7 @@ export default function Home() {
   return (
     <>
     <Head>
-      <title>SujeitoPizza - Faça seu login</title>
+      <title>Quero Pizza - Faça seu login</title>
     </Head>
     <div className={styles.containerCenter}>
       <Image src={logoImg} alt="Logo Sujeito Pizzaria" />
